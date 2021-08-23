@@ -4,6 +4,7 @@ steps:
     displayName: "Update .env.tmp file"
 
   - bash: |
+      az extension add --name azure-iot
       az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
       az iot edge deployment create -d test-deploy --content layered_deployment.json --target-condition tags.test=true --priority 10 -l $IOTHUB_CONNECTION_STRING
       az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
@@ -27,6 +28,7 @@ steps:
       pip install --upgrade tox
       sudo npm i -g iothub-explorer
       az --version
+      az extension add --name azure-iot
     displayName: "Update and install required tools"
 
   - script: |
