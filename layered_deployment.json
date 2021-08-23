@@ -1,0 +1,25 @@
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "modules": {
+            "sample_module": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "s608d3c36cr.azurecr.io/sample_module:0.0.1-RC-amd64.debug",
+                "createOptions": "{}"
+              }
+            }
+          }
+        }
+      },
+      "$edgeHub": {
+        "properties.desired.routes.upstream": "FROM /messages/* INTO $upstream"
+      }
+    }
+  }
+}

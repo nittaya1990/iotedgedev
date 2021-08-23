@@ -3,6 +3,14 @@ steps:
       ((Get-Content -path "$(BUILD.REPOSITORY.LOCALPATH)\.env.tmp" -Raw) -replace 'IOTHUB_CONNECTION_STRING=".*"','IOTHUB_CONNECTION_STRING="$(IOTHUB_CONNECTION_STRING)"' -replace 'DEVICE_CONNECTION_STRING=".*"','DEVICE_CONNECTION_STRING="$(DEVICE_CONNECTION_STRING)"' -replace 'CONTAINER_REGISTRY_SERVER=".*"','CONTAINER_REGISTRY_SERVER="$(CONTAINER_REGISTRY_SERVER)"' -replace 'CONTAINER_REGISTRY_USERNAME=".*"','CONTAINER_REGISTRY_USERNAME="$(CONTAINER_REGISTRY_USERNAME)"' -replace 'CONTAINER_REGISTRY_PASSWORD=".*"','CONTAINER_REGISTRY_PASSWORD="$(CONTAINER_REGISTRY_PASSWORD)"') | Set-Content -Path "$(BUILD.REPOSITORY.LOCALPATH)\.env.tmp"
     displayName: "Update .env.tmp file"
 
+  - bash: |
+      az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
+      az iot edge deployment create -d test-deploy --content layered_deployment.json --target-condition tags.test=true --priority 10 -l $IOTHUB_CONNECTION_STRING
+      az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
+    displayName: "test"
+    env:
+      IOTHUB_CONNECTION_STRING: IOTHUB_CONNECTION_STRING
+
   - task: UsePythonVersion@0
     inputs:
       versionSpec: "$(python.version)"
