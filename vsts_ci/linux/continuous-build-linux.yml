@@ -5,9 +5,9 @@ steps:
 
   - bash: |
       az extension add --name azure-iot
-      az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
-      az iot edge deployment create -d test-deploy --content layered_deployment.json --target-condition tags.test=true --priority 10 -l $IOTHUB_CONNECTION_STRING
-      az iot edge deployment list -l $IOTHUB_CONNECTION_STRING
+      az iot edge deployment list -l $(IOTHUB_CONNECTION_STRING)
+      az iot edge deployment create -d test-deploy --content layered_deployment.json --target-condition tags.test=true --priority 10 -l $(IOTHUB_CONNECTION_STRING)
+      az iot edge deployment list -l $(IOTHUB_CONNECTION_STRING)
     displayName: "test"
     env:
       IOTHUB_CONNECTION_STRING: IOTHUB_CONNECTION_STRING
