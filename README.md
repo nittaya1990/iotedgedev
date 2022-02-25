@@ -1,7 +1,7 @@
 # Azure IoT Edge Dev Tool
 
 [![PyPI version](https://badge.fury.io/py/iotedgedev.svg)](https://badge.fury.io/py/iotedgedev)
-[![Build Status](https://dev.azure.com/Azure-IoT-DDE-EdgeExperience/IoTEdgeDev/_apis/build/status/Azure.iotedgedev?branchName=master)](https://dev.azure.com/Azure-IoT-DDE-EdgeExperience/IoTEdgeDev/_build/latest?definitionId=35&branchName=master)
+[![Build Status](https://dev.azure.com/Azure-IoT-DDE-EdgeExperience/IoTEdgeDev/_apis/build/status/Azure.iotedgedev?branchName=main)](https://dev.azure.com/Azure-IoT-DDE-EdgeExperience/IoTEdgeDev/_build/latest?definitionId=35&branchName=main)
 
 The **IoT Edge Dev Tool** greatly simplifies [Azure IoT Edge](https://azure.microsoft.com/en-us/services/iot-edge/) development down to simple commands driven by environment variables.
 
@@ -193,3 +193,12 @@ instructions provided by the bot. You will only need to do this once across all 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Support
+The team monitors the issue section on regular basis and will try to assist with troubleshooting or questions related IoT Edge tools on a best effort basis.
+	
+A few tips before opening an issue. Try to generalize the problem as much as possible. Examples include
+- Removing 3rd party components
+- Reproduce the issue with provided deployment manifest used
+- Specify whether issue is reproducible on physical device or simulated device or both
+Also, Consider consulting on the [docker docs channel](https://github.com/docker/docker.github.io) for general docker questions.
